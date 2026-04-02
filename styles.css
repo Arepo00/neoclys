@@ -1,14 +1,13 @@
-body { font-family: Inter, Arial, sans-serif; margin: 0; background: #0b1020; color: #eef3ff; }
-header { padding: 1.5rem; border-bottom: 1px solid #233054; }
-header h1 { margin: 0 0 .4rem; }
-main.grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; padding: 1rem; }
-.card { background: #121a2a; border: 1px solid #2a3758; border-radius: .75rem; padding: 1rem; }
-.span2 { grid-column: span 2; }
-.row { display: flex; gap: .6rem; margin-bottom: .7rem; }
-button { background: #5eead4; color: #06221d; border: 0; border-radius: .45rem; padding: .55rem .8rem; font-weight: 600; cursor: pointer; }
-input { background: #0f1627; color: #fff; border: 1px solid #2a3758; border-radius: .4rem; padding: .5rem; }
-pre { background: #0f1627; border: 1px solid #2a3758; border-radius: .45rem; padding: .75rem; min-height: 72px; overflow: auto; }
-.kpi-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .6rem; }
-.k { background: #0f1627; border: 1px solid #2a3758; border-radius: .45rem; padding: .6rem; display: flex; justify-content: space-between; }
-code { color: #9ee9de; }
-@media (max-width: 900px) { main.grid { grid-template-columns: 1fr; } .span2 { grid-column: span 1; } }
+body{font-family:Inter,Arial,sans-serif;margin:0;background:#0b1020;color:#eef3ff}
+header{padding:1.25rem;border-bottom:1px solid #24314f}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;padding:1rem}
+.card{background:#121a2a;border:1px solid #2a3758;border-radius:.75rem;padding:1rem}
+.span2{grid-column:span 2}
+.row{display:flex;gap:.6rem;margin-bottom:.6rem;flex-wrap:wrap}
+input,button{padding:.55rem .75rem;border-radius:.45rem}
+input{background:#0f1627;color:#fff;border:1px solid #2a3758}
+button{background:#5eead4;color:#06221d;border:0;font-weight:700;cursor:pointer}
+pre{background:#0f1627;border:1px solid #2a3758;border-radius:.45rem;padding:.65rem;min-height:80px;overflow:auto}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+.k{background:#0f1627;border:1px solid #2a3758;border-radius:.45rem;padding:.55rem;display:flex;justify-content:space-between}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.span2{grid-column:span 1}}

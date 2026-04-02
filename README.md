@@ -1,38 +1,30 @@
-# Neocly AI OS SaaS
+# Neocly AI OS SaaS (Production-Oriented Build)
 
-A full-stack SaaS starter for Neocly AI OS with:
-- Backend API + automation engine (Python + SQLite)
-- Frontend dashboard (HTML/CSS/JS)
-- Autonomous outbound + sales + F2A loop
+## Included now
+- **Auth + RBAC** (admin/client roles)
+- **Tenant isolation** (per-org SQLite DB files under `data/`)
+- **Client API** for seeding/running/reporting
+- **Admin API** for org listing + subscription activation
+- **Security basics**: password hashing (PBKDF2), bearer sessions, in-memory rate limiting, idempotency keys, audit logs
+- **Frontend** with separate auth/client/admin workflows
 
-## Run as SaaS (web app)
-
-```bash
-python neocly_os.py --db neocly_os.db serve --host 127.0.0.1 --port 8080
-```
-
-Then open: `http://127.0.0.1:8080`
-
-From the dashboard you can:
-1. Initialize system
-2. Seed leads
-3. Run automation days
-4. View live KPI report
-5. Run full verification checklist
-
-## CLI mode
+## Run
 
 ```bash
-python neocly_os.py --db neocly_os.db init
-python neocly_os.py --db neocly_os.db seed-leads 3000
-python neocly_os.py --db neocly_os.db run 60
-python neocly_os.py --db neocly_os.db report
-python neocly_os.py --db neocly_os.db verify
+python saas_app.py serve --host 127.0.0.1 --port 8000 --db control.db --token-secret "change-this"
 ```
 
-## Windows fixes included
-- Replaced deprecated `datetime.utcnow()` with timezone-aware `datetime.now(dt.timezone.utc)`.
-- Added explicit DB connection close via context manager to avoid SQLite file locks during test temp directory cleanup.
+Open `http://127.0.0.1:8000`.
+
+## Core endpoints
+- `POST /api/auth/signup`
+- `POST /api/auth/login`
+- `GET /api/org/report`
+- `POST /api/org/seed`
+- `POST /api/org/run`
+- `GET /api/admin/orgs` (admin only)
+- `POST /api/billing/subscribe`
+- `GET /api/integrations/status`
 
 ## Test
 
@@ -40,7 +32,11 @@ python neocly_os.py --db neocly_os.db verify
 python -m unittest -v
 ```
 
-## Production status
-This repository is a **prototype SaaS** for validation and demos.
-It is **not production-ready yet**.
-See `PRODUCTION_READINESS.md` for exact gaps and roadmap.
+
+## Enterprise stack scaffold (added)
+A production architecture scaffold now exists under `production/` with Docker, Postgres, Redis, Celery, FastAPI, metrics, and provider-integration entry points.
+
+Run:
+```bash
+docker compose -f docker-compose.prod.yml up --build
+```
