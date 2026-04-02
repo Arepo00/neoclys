@@ -39,3 +39,8 @@ python neocly_os.py --db neocly_os.db verify
 ```bash
 python -m unittest -v
 ```
+
+## Production status
+This repository is a **prototype SaaS** for validation and demos.
+It is **not production-ready yet**.
+See `PRODUCTION_READINESS.md` for exact gaps and roadmap.
