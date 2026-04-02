@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neocly SaaS Console</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Neocly SaaS Console</h1>
+    <p>Admin + Client workflows in one production-oriented control panel.</p>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>Auth</h2>
+      <div class="row"><input id="orgName" placeholder="Organization"/><input id="email" placeholder="Email"/></div>
+      <div class="row"><input id="password" type="password" placeholder="Password"/></div>
+      <div class="row"><button id="signupBtn">Sign Up (Admin)</button><button id="loginBtn">Login</button></div>
+      <pre id="authStatus">Not authenticated.</pre>
+    </section>
+
+    <section class="card">
+      <h2>Client Side</h2>
+      <div class="row"><input id="seedCount" type="number" value="3000"/><button id="seedBtn">Seed Leads</button></div>
+      <div class="row"><input id="runDays" type="number" value="60"/><button id="runBtn">Run Automation</button></div>
+      <div class="row"><button id="reportBtn">Refresh Report</button></div>
+      <div id="kpi" class="kpi-grid"></div>
+    </section>
+
+    <section class="card">
+      <h2>Admin Side</h2>
+      <div class="row"><button id="orgsBtn">List Organizations</button><button id="subscribeBtn">Activate Pro Plan</button></div>
+      <div class="row"><button id="integBtn">Integrations Status</button></div>
+      <pre id="adminOut">No admin action yet.</pre>
+    </section>
+
+    <section class="card span2">
+      <h2>System Log</h2>
+      <pre id="log">Ready.</pre>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
